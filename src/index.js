@@ -1,18 +1,4 @@
-import { SnapPolygonMode, SnapPointMode, SnapLineMode, SnapModeDrawStyles } from 'mapbox-gl-draw-snap-mode';
-
-import mapboxGlDrawPinningMode from 'mapbox-gl-draw-pinning-mode.js';
-
-import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode.js';
-
-import { SRMode, SRCenter, SRStyle } from 'mapbox-gl-draw-scale-rotate-mode';
-
-import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode';
-
-import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode';
-
-import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode';
-
-import additionalTools from 'mapbox-gl-draw-additional-tools';
+// import additionalTools from 'mapbox-gl-draw-additional-tools';
 
 class SnapOptionsToolbar {
     constructor(opt) {
@@ -59,57 +45,31 @@ class SnapOptionsToolbar {
     }
 }
 
-class extendDrawBar {
+class ExtendDrawBar {
     constructor(opt) {
-        this.draw = opt.draw;
-        this.onRemoveOrig = opt.draw.onRemove;
-        const { union, copy, buffer } = this.draw.options;
-        this.initialOptions = { union, copy, buffer };
-
-        this.buttons = [
-            {
-                name: 'Union',
-                callback: this.unionPolygons,
-                title: `Union tool`,
-                classes: ['mapbox-gl-draw_union', opt.classPrefix ? `${opt.classPrefix}-union` : null],
-            },
-            {
-                name: 'Buffer',
-                callback: this.bufferFeature,
-                title: `Buffer tool`,
-                classes: ['mapbox-gl-draw_buffer', opt.classPrefix ? `${opt.classPrefix}-buffer` : null],
-            },
-            {
-                name: 'Copy',
-                callback: this.copyFeature,
-                title: `Copy tool`,
-                classes: ['mapbox-gl-draw_copy', opt.classPrefix ? `${opt.classPrefix}-copy` : null],
-            },
-        ];
+        let ctrl = this;
+        ctrl.draw = opt.draw;
+        ctrl.buttons = opt.buttons || [];
+        ctrl.onAddOrig = opt.draw.onAdd;
+        ctrl.onRemoveOrig = opt.draw.onRemove;
     }
-
     onAdd(map) {
-        this.map = map;
-        this._container = document.createElement('div');
-        this._container.className = 'mapboxgl-ctrl-group mapboxgl-ctrl';
-        this.elContainer = this._container;
-        this.buttons
-            .filter((button) => this.initialOptions[button.name.toLowerCase()] !== false)
-            .forEach((b) => {
-                this.addButton(b);
-            });
-        return this._container;
+        let ctrl = this;
+        ctrl.map = map;
+        ctrl.elContainer = ctrl.onAddOrig(map);
+        ctrl.buttons.forEach((b) => {
+            ctrl.addButton(b);
+        });
+        return ctrl.elContainer;
     }
     onRemove(map) {
-        this.buttons
-            .filter((button) => this.initialOptions[button.name.toLowerCase()] !== false)
-            .forEach((b) => {
-                this.removeButton(b);
-            });
-        this.onRemoveOrig(map);
+        ctrl.buttons.forEach((b) => {
+            ctrl.removeButton(b);
+        });
+        ctrl.onRemoveOrig(map);
     }
-
     addButton(opt) {
+        let ctrl = this;
         var elButton = document.createElement('button');
         elButton.className = 'mapbox-gl-draw_ctrl-draw-btn';
         elButton.setAttribute('title', opt.title);
@@ -118,19 +78,92 @@ class extendDrawBar {
                 elButton.classList.add(c);
             });
         }
-        elButton.addEventListener('click', opt.callback.bind(this));
-        this.elContainer.appendChild(elButton);
+        elButton.addEventListener(opt.on, opt.action);
+        ctrl.elContainer.appendChild(elButton);
         opt.elButton = elButton;
     }
-
     removeButton(opt) {
-        opt.elButton.removeEventListener('click', opt.action);
+        opt.elButton.removeEventListener(opt.on, opt.action);
         opt.elButton.remove();
     }
 }
 
-export default (map, draw, placement) => {
-    map.addControl(extendDrawBar, placement);
-    map.addControl(additionalTools(draw, 'custom-prefix'), placement);
-    map.addControl(SnapOptionsToolbar, placement);
+export default {
+    addControl(map, draw, placement) {
+        const snapOptionsBar = new SnapOptionsToolbar({
+            draw: draw,
+            checkboxes: [
+                {
+                    on: 'change',
+                    action: (e) => {
+                        draw.options.snap = e.target.checked;
+                    },
+                    classes: ['snap_mode', 'snap'],
+                    title: 'Snap when Draw',
+                    initialState: 'checked',
+                },
+                {
+                    on: 'change',
+                    action: (e) => {
+                        draw.options.guides = e.target.checked;
+                    },
+                    classes: ['snap_mode', 'grid'],
+                    title: 'Show Guides',
+                },
+            ],
+        });
+
+        const drawBar = new ExtendDrawBar({
+            draw: draw,
+            buttons: [
+                {
+                    on: 'click',
+                    action: () => {
+                        draw.changeMode('passing_mode_point');
+                    },
+                    classes: ['passing_mode', 'point'],
+                    title: 'Passing-Point tool',
+                },
+                {
+                    on: 'click',
+                    action: () => {
+                        draw.changeMode('passing_mode_line_string', (info) => {
+                            console.log(info);
+                        });
+                    },
+                    classes: ['passing_mode', 'line'],
+                    title: 'Passing-LineString tool',
+                },
+                {
+                    on: 'click',
+                    action: () => {
+                        draw.changeMode('passing_mode_polygon');
+                    },
+                    classes: ['passing_mode', 'polygon'],
+                    title: 'Passing-Polygon tool',
+                },
+            ],
+        });
+
+        map.addControl(drawBar, placement);
+        // map.addControl(additionalTools(draw), placement);
+        map.addControl(snapOptionsBar, placement);
+    },
+
+    // patchModes(MapboxDrawModes) {
+    //     return {
+    //             ...MapboxDraw.modes,
+    //             draw_point: SnapPointMode,
+    //             draw_polygon: SnapPolygonMode,
+    //             draw_line_string: SnapLineMode,
+    //             pinning_mode: mapboxGlDrawPinningMode,
+    //             passing_mode_point: mapboxGlDrawPassingMode(MapboxDraw.modes.draw_point),
+    //             passing_mode_line_string: mapboxGlDrawPassingMode(MapboxDraw.modes.draw_line_string),
+    //             passing_mode_polygon: mapboxGlDrawPassingMode(MapboxDraw.modes.draw_polygon),
+    //             scaleRotateMode: SRMode,
+    //             cutPolygonMode: CutPolygonMode,
+    //             splitPolygonMode: SplitPolygonMode,
+    //             splitLineMode: SplitLineMode,
+    //     }
+    // }
 };

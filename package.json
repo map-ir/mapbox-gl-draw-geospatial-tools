@@ -50,8 +50,5 @@
         "mapbox-gl-draw-split-polygon-mode": "^1.0.1",
         "mapbox-gl-draw-split-line-mode": "^1.0.2",
         "mapbox-gl-draw-additional-tools": "^0.2.0"
-    },
-    "dependencies": {
-        "@turf/turf": "5.1.6"
     }
 }

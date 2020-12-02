@@ -13,7 +13,15 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-scripts": "4.0.1",
-        "web-vitals": "^0.2.4"
+        "web-vitals": "^0.2.4",
+        "mapbox-gl-draw-snap-mode": "^0.1.6",
+        "mapbox-gl-draw-pinning-mode": "^0.1.0",
+        "mapbox-gl-draw-passing-mode": "^0.1.0",
+        "mapbox-gl-draw-scale-rotate-mode": "^0.1.0",
+        "mapbox-gl-draw-cut-polygon-mode": "^1.0.1",
+        "mapbox-gl-draw-split-polygon-mode": "^1.0.1",
+        "mapbox-gl-draw-split-line-mode": "^1.0.2",
+        "mapbox-gl-draw-additional-tools": "^0.2.0"
     },
     "scripts": {
         "start": "react-scripts start",
