@@ -1,8 +1,63 @@
-import Union from '@turf/union';
-import Buffer from '@turf/buffer';
-import transformTranslate from '@turf/transform-translate';
+import { SnapPolygonMode, SnapPointMode, SnapLineMode, SnapModeDrawStyles } from 'mapbox-gl-draw-snap-mode';
 
-require('./index.css');
+import mapboxGlDrawPinningMode from 'mapbox-gl-draw-pinning-mode.js';
+
+import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode.js';
+
+import { SRMode, SRCenter, SRStyle } from 'mapbox-gl-draw-scale-rotate-mode';
+
+import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode';
+
+import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode';
+
+import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode';
+
+import additionalTools from 'mapbox-gl-draw-additional-tools';
+
+class SnapOptionsToolbar {
+    constructor(opt) {
+        let ctrl = this;
+        ctrl.checkboxes = opt.checkboxes || [];
+        ctrl.onRemoveOrig = opt.draw.onRemove;
+    }
+    onAdd(map) {
+        let ctrl = this;
+        ctrl.map = map;
+        ctrl._container = document.createElement('div');
+        ctrl._container.className = 'mapboxgl-ctrl-group mapboxgl-ctrl';
+        ctrl.elContainer = ctrl._container;
+        ctrl.checkboxes.forEach((b) => {
+            ctrl.addCheckbox(b);
+        });
+        return ctrl._container;
+    }
+    onRemove(map) {
+        ctrl.checkboxes.forEach((b) => {
+            ctrl.removeButton(b);
+        });
+        ctrl.onRemoveOrig(map);
+    }
+    addCheckbox(opt) {
+        let ctrl = this;
+        var elCheckbox = document.createElement('input');
+        elCheckbox.setAttribute('type', 'checkbox');
+        elCheckbox.setAttribute('title', opt.title);
+        elCheckbox.checked = opt.initialState === 'checked';
+        elCheckbox.className = 'mapbox-gl-draw_ctrl-draw-btn';
+        if (opt.classes instanceof Array) {
+            opt.classes.forEach((c) => {
+                elCheckbox.classList.add(c);
+            });
+        }
+        elCheckbox.addEventListener(opt.on, opt.action);
+        ctrl.elContainer.appendChild(elCheckbox);
+        opt.elCheckbox = elCheckbox;
+    }
+    removeButton(opt) {
+        opt.elCheckbox.removeEventListener(opt.on, opt.action);
+        opt.elCheckbox.remove();
+    }
+}
 
 class extendDrawBar {
     constructor(opt) {
@@ -72,72 +127,10 @@ class extendDrawBar {
         opt.elButton.removeEventListener('click', opt.action);
         opt.elButton.remove();
     }
-
-    unionPolygons() {
-        const selectedFeatures = this.draw.getSelected().features;
-        if (!selectedFeatures.length) return;
-        let unionPoly;
-        try {
-            unionPoly = Union(...this.draw.getSelected().features);
-        } catch (err) {
-            throw new Error(err);
-        }
-        if (unionPoly.geometry.type === 'GeometryCollection')
-            throw new Error('Selected Features must have the same types!');
-        let ids = selectedFeatures.map((i) => i.id);
-        this.draw.delete(ids);
-        unionPoly.id = ids.join('-');
-        this.draw.add(unionPoly);
-        this.draw.changeMode('simple_select', { featureIds: [unionPoly.id] });
-    }
-
-    bufferFeature() {
-        const selectedFeatures = this.draw.getSelected().features;
-        if (!selectedFeatures.length) return;
-        const bufferOptions = {};
-        bufferOptions.units = this.draw.options.bufferUnits || 'kilometers';
-        bufferOptions.steps = this.draw.options.bufferSteps || '64';
-        let ids = [];
-        selectedFeatures.forEach((main) => {
-            let buffered = Buffer(main, this.draw.options.bufferSize || 0.5, bufferOptions);
-            buffered.id = `${main.id}_buffer_${Math.floor(Math.random() * Math.floor(1000))}`;
-            ids.push(buffered.id);
-            this.draw.add(buffered);
-        });
-        this.draw.changeMode('simple_select', { featureIds: ids });
-    }
-
-    copyFeature() {
-        const selectedFeatures = this.draw.getSelected().features;
-        if (!selectedFeatures.length) return;
-        let ids = [];
-        selectedFeatures.forEach((main) => {
-            var translatedPoly = transformTranslate(main, 2, 35);
-            translatedPoly.id = `${main.id}_copy_${Math.floor(Math.random() * Math.floor(1000))}`;
-            ids.push(translatedPoly.id);
-            this.draw.add(translatedPoly);
-        });
-        this.draw.changeMode('simple_select', { featureIds: ids });
-    }
 }
 
-/*
-options
-------
-
-
-{
-    union: true,
-    copy: true,
-    buffer: true,
-    bufferSize: 500,
-    bufferUnit: 'kilometers',
-    bufferSteps: 64,
-}
-*/
-
-export default (draw, classPrefix) =>
-    new extendDrawBar({
-        draw,
-        classPrefix,
-    });
+export default (map, draw, placement) => {
+    map.addControl(extendDrawBar, placement);
+    map.addControl(additionalTools(draw, 'custom-prefix'), placement);
+    map.addControl(SnapOptionsToolbar, placement);
+};

@@ -1,10 +1,10 @@
-[![NPM](https://img.shields.io/npm/v/mapbox-gl-draw-additional-tools.svg)](https://www.npmjs.com/package/mapbox-gl-draw-additional-tools)
-![Develop](https://github.com/reyhanemasumi/mapbox-gl-draw-additional-tools/workflows/Develop/badge.svg)
-![Release](https://github.com/reyhanemasumi/mapbox-gl-draw-additional-tools/workflows/Release/badge.svg)
+[![NPM](https://img.shields.io/npm/v/mapbox-gl-draw-geospatial-tools.svg)](https://www.npmjs.com/package/mapbox-gl-draw-geospatial-tools)
+![Develop](https://github.com/reyhanemasumi/mapbox-gl-draw-geospatial-tools/workflows/Develop/badge.svg)
+![Release](https://github.com/reyhanemasumi/mapbox-gl-draw-geospatial-tools/workflows/Release/badge.svg)
 
-# mapbox-gl-draw-additional-tools
+# Mapbox GL Draw Geospatial Tools
 
-Some additional tools for [MapboxGL-Draw](https://github.com/mapbox/mapbox-gl-draw) like Union, Copy, Buffer and ...
+Advanced tools for geospatial edit and analysis based on Mapbox Gl Draw
 
 ## [DEMO](https://reyhanemasumi.github.io/mapbox-gl-draw-additional-tools/)
 
@@ -13,13 +13,13 @@ Some additional tools for [MapboxGL-Draw](https://github.com/mapbox/mapbox-gl-dr
 ## Install
 
 ```bash
-npm install mapbox-gl-draw-additional-tools
+npm install mapbox-gl-draw-geospatial-tools
 ```
 
 or use CDN:
 
 ```html
-<script src="https://unpkg.com/mapbox-gl-draw-additional-tools"></script>
+<script src="https://unpkg.com/mapbox-gl-draw-geospatial-tools"></script>
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ or use CDN:
 ```js
 import mapboxGl from 'mapbox-gl';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
-import additionalTools from 'mapbox-gl-draw-additional-tools';
+import geospatialTools from 'mapbox-gl-draw-geospatial-tools';
 
 const map = new mapboxgl.Map({
     container: 'map', // container id
@@ -40,23 +40,7 @@ const draw = new MapboxDraw({
     modes: {
         ...MapboxDraw.modes,
     },
-    userProperties: true,
-    union: true, // Default is true. If set to false, the button does not appear in toolbox
-    copy: true, // Default is true. If set to false, the button does not appear in toolbox
-    buffer: true, // Default is true. If set to false, the button does not appear in toolbox
-    bufferSize: 0.5, // Default is 500
-    bufferUnit: 'kilometers', //Default is kilometers. It can be miles, degrees or kilometers
-    bufferSteps: 64, // Default is 64
 });
-map.addControl(draw);
-map.addControl(additionalTools(draw), 'top-right');
-// or add a class prefix for styling buttons
-// e.g. custom-tools-union, custom-tools-buffer, ...
-map.addControl(additionalTools(draw, 'custom-tools'), 'top-right');
 ```
 
-## [Example](https://github.com/ReyhaneMasumi/mapbox-gl-draw-additional-tools/blob/main/demo/src/App.js)
-
-## License
-
-MIT © [ReyhaneMasumi](LICENSE)
+## [Example](https://github.com/ReyhaneMasumi/mapbox-gl-draw-geospatial-tools/blob/main/demo/src/App.js)
