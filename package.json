@@ -1,0 +1,57 @@
+{
+    "name": "mapbox-gl-draw-geospatial-tools",
+    "version": "0.0.0",
+    "description": "Advanced tools for geospatial edit and analysis based on Mapbox Gl Draw",
+    "main": "dist/index.js",
+    "module": "src/index.js",
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/map-ir/mapbox-gl-draw-geospatial-tools.git"
+    },
+    "keywords": [
+        "mapbox",
+        "mapbox-gl",
+        "mapbox-gl-draw",
+        "geojson"
+    ],
+    "author": "Reyhane Masumi",
+    "contributors": [
+        "Mohammad H. Sattarian"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/map-ir/mapbox-gl-draw-geospatial-tools/issues"
+    },
+    "homepage": "https://github.com/map-ir/mapbox-gl-draw-geospatial-tools#readme",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "11.0.2",
+        "@rollup/plugin-inject": "4.0.1",
+        "@rollup/plugin-node-resolve": "7.1.1",
+        "rollup": "^1.27.14",
+        "rollup-plugin-copy": "^3.3.0",
+        "rollup-plugin-css-only": "^3.0.0",
+        "rollup-plugin-terser": "^7.0.2"
+    },
+    "peerDependencies": {
+        "@mapbox/mapbox-gl-draw": "^1.2.0",
+        "mapbox-gl-draw-snap-mode": "^0.1.6",
+        "mapbox-gl-draw-pinning-mode": "^0.1.0",
+        "mapbox-gl-draw-passing-mode": "^0.1.0",
+        "mapbox-gl-draw-scale-rotate-mode": "^0.1.0",
+        "mapbox-gl-draw-cut-polygon-mode": "^1.0.1",
+        "mapbox-gl-draw-split-polygon-mode": "^1.0.1",
+        "mapbox-gl-draw-split-line-mode": "^1.0.2",
+        "mapbox-gl-draw-additional-tools": "^0.2.0"
+    },
+    "dependencies": {
+        "@turf/turf": "5.1.6"
+    }
+}

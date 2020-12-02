@@ -1,0 +1,18 @@
+.mapbox-gl-draw_union {
+    background-image: url('./img/union.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+}
+.mapbox-gl-draw_buffer {
+    background-image: url('./img/buffer.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+}
+.mapbox-gl-draw_copy {
+    background-image: url('./img/copy.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+}
