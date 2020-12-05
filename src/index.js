@@ -108,6 +108,7 @@ export default class MapboxDrawPro extends MapboxDraw {
                     }
                 },
                 classes: ['split-line'],
+                title: 'Split Line Mode tool',
             },
             {
                 on: 'click',
@@ -120,6 +121,7 @@ export default class MapboxDrawPro extends MapboxDraw {
                     }
                 },
                 classes: ['split-polygon'],
+                title: 'Split Polygon Mode tool',
             },
             {
                 on: 'click',
@@ -132,6 +134,7 @@ export default class MapboxDrawPro extends MapboxDraw {
                     }
                 },
                 classes: ['cut-polygon'],
+                title: 'Cut Polygon Mode tool',
             },
             {
                 on: 'click',
@@ -157,6 +160,7 @@ export default class MapboxDrawPro extends MapboxDraw {
                     }
                 },
                 classes: ['rotate-icon'],
+                title: 'Scale and Rotate Mode tool',
             },
             {
                 on: 'click',
