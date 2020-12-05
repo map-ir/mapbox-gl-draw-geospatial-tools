@@ -28,7 +28,7 @@ function App() {
             pitch: 0,
             interactive: true,
             hash: true,
-            // attributionControl: true,
+            attributionControl: true,
             customAttribution: '© Map © Openstreetmap',
             transformRequest: (url) => {
                 return {
