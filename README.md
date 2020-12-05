@@ -1,17 +1,17 @@
 [![NPM](https://img.shields.io/npm/v/@map.ir/mapbox-gl-draw-geospatial-tools.svg)](https://www.npmjs.com/package/@map.ir/mapbox-gl-draw-geospatial-tools)
-![Develop](https://github.com/map-ir/@map.ir/mapbox-gl-draw-geospatial-tools/workflows/Develop/badge.svg)
-![Release](https://github.com/map-ir/@map.ir/mapbox-gl-draw-geospatial-tools/workflows/Release/badge.svg)
+![Develop](https://github.com/map-ir/mapbox-gl-draw-geospatial-tools/workflows/Develop/badge.svg)
+![Release](https://github.com/map-ir/mapbox-gl-draw-geospatial-tools/workflows/Release/badge.svg)
 
 # Mapbox GL Draw Geospatial Tools
 
 Advanced tools for geospatial edit and analysis based on [MapboxGL-Draw](https://github.com/mapbox/mapbox-gl-draw).
 
-Internally it uses multiple Mapbox GL Draw plugins listed below:
+Internally multiple Mapbox GL Draw plugins are used:
 
 -   [Split LineString Mode](https://github.com/ReyhaneMasumi/mapbox-gl-draw-split-line-mode)
 -   [Split Polygon Mode](https://github.com/ReyhaneMasumi/mapbox-gl-draw-split-polygon-mode)
 -   [Cut Polygon Mode](https://github.com/ReyhaneMasumi/mapbox-gl-draw-cut-polygon-mode)
--   [Rotate/Scale Mode](https://github.com/ReyhaneMasumi/mapbox-gl-draw-scale-rotate-mode)
+-   [Scale/Rotate Mode](https://github.com/ReyhaneMasumi/mapbox-gl-draw-scale-rotate-mode)
 -   [Pinning Mode](https://github.com/mhsattarian/mapbox-gl-draw-pinning-mode)
 -   [Snap Mode](https://github.com/mhsattarian/mapbox-gl-draw-snap-mode)
 -   [Aditional Tools](https://github.com/ReyhaneMasumi/mapbox-gl-draw-additional-tools)
@@ -20,7 +20,7 @@ Internally it uses multiple Mapbox GL Draw plugins listed below:
 
 ![An Image showing toolbar](demo/public/demo.png)
 
-[See Example](https://github.com/map-ir/mapbox-gl-draw-geospatial-tools/blob/main/demo/src/App.js)
+[Or, See Example](https://github.com/map-ir/mapbox-gl-draw-geospatial-tools/blob/main/demo/src/App.js)
 
 ## Install
 
@@ -52,9 +52,11 @@ const map = new mapboxgl.Map({
 const draw = new MapboxDrawPro(option);
 ```
 
-> **`MapboxDrawPro` supported all options and methods of [MapboxGL-Draw](https://github.com/mapbox/mapbox-gl-draw). See [API.md](https://github.com/mapbox/mapbox-gl-draw/blob/main/docs/API.md) for complete reference.**
+> **`MapboxDrawPro` supported all options and methods of [MapboxGL-Draw](https://github.com/mapbox/mapbox-gl-draw)**
+>
+> See [API.md](https://github.com/mapbox/mapbox-gl-draw/blob/main/docs/API.md) for complete reference.
 
-you can customize options of internally used plugins which are as below in default:
+also, you can customize options of internally used plugins which are as below in default:
 
 ```js
 {
@@ -78,7 +80,7 @@ you can customize options of internally used plugins which are as below in defau
         snapPx: 15,
         snapToMidPoints: true,
     },
-  guides: false,
+    guides: false,
 }
 ```
 
