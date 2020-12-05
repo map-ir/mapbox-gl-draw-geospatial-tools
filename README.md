@@ -38,7 +38,7 @@ const map = new mapboxgl.Map({
 const draw = new MapboxDrawPro(option);
 ```
 
-# `MapboxDrawPro` supported all options and methods of [MapboxGL-Draw](https://github.com/mapbox/mapbox-gl-draw). See [API.md](https://github.com/mapbox/mapbox-gl-draw/blob/main/docs/API.md) for complete reference.
+### `MapboxDrawPro` supported all options and methods of [MapboxGL-Draw](https://github.com/mapbox/mapbox-gl-draw). See [API.md](https://github.com/mapbox/mapbox-gl-draw/blob/main/docs/API.md) for complete reference.
 
 Also, options can be these:
 
