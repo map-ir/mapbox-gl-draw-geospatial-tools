@@ -55,8 +55,9 @@ class SnapOptionsToolbar {
     }
 }
 
-export default class BetterMapboxDraw extends MapboxDraw {
+export default class MapboxDrawPro extends MapboxDraw {
     constructor(options) {
+        options = options || {};
         const { modes, otherOtions } = options;
 
         const customModes = {
@@ -92,7 +93,6 @@ export default class BetterMapboxDraw extends MapboxDraw {
 
         super(_options);
 
-        // this.draw = opt.draw;
         this.buttons = [
             {
                 on: 'click',

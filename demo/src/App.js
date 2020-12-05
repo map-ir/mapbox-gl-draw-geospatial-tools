@@ -3,14 +3,6 @@ import mapboxGl from 'mapbox-gl';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 
-// import { SnapPolygonMode, SnapPointMode, SnapLineMode, SnapModeDrawStyles } from 'mapbox-gl-draw-snap-mode';
-// import mapboxGlDrawPinningMode from 'mapbox-gl-draw-pinning-mode';
-// import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode';
-// import { SRMode, SRCenter, SRStyle } from 'mapbox-gl-draw-scale-rotate-mode';
-// import CutPolygonMode from 'mapbox-gl-draw-cut-polygon-mode';
-// import SplitPolygonMode from 'mapbox-gl-draw-split-polygon-mode';
-// import SplitLineMode from 'mapbox-gl-draw-split-line-mode';
-// import geospatialToolbar from 'mapbox-gl-draw-geospatial-tools';
 import SuperMapboxDraw from 'mapbox-gl-draw-geospatial-tools';
 
 import './App.css';
@@ -51,7 +43,7 @@ function App() {
                 };
             },
         });
-        draw = new SuperMapboxDraw({});
+        draw = new SuperMapboxDraw();
 
         window.draw = draw;
 
