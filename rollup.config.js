@@ -22,7 +22,7 @@ export default [
             file: pkg.main,
             format: 'umd',
             exports: 'named',
-            name: 'additionalTools',
+            name: 'geospatialToolbar',
             sourcemap: process.env.NODE_ENV !== 'production',
         },
     },
