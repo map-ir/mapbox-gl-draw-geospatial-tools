@@ -1,9 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxGl from 'mapbox-gl';
-// import MapboxDraw from '@mapbox/mapbox-gl-draw';
-import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 
-import SuperMapboxDraw from 'mapbox-gl-draw-geospatial-tools';
+import MapboxDrawPro from 'mapbox-gl-draw-geospatial-tools';
 
 import './App.css';
 
@@ -43,8 +41,8 @@ function App() {
                 };
             },
         });
-        draw = new SuperMapboxDraw();
 
+        draw = new MapboxDrawPro();
         window.draw = draw;
 
         map.once('load', () => {
