@@ -1,6 +1,8 @@
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 require('@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css');
 
+import unionBy from 'lodash.unionby';
+
 import { SnapPolygonMode, SnapPointMode, SnapLineMode, SnapModeDrawStyles } from 'mapbox-gl-draw-snap-mode';
 import mapboxGlDrawPinningMode from 'mapbox-gl-draw-pinning-mode';
 import mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode';
@@ -90,7 +92,8 @@ export default class MapboxDrawPro extends MapboxDraw {
         };
 
         const _modes = { ...customModes, ...modes };
-        const _options = { modes: _modes, ...customOptions, ...otherOtions };
+        const _styles = unionBy(SnapModeDrawStyles, SRStyle, addToolStyle, styles, 'id');
+        const _options = { modes: _modes, styles: _styles, ...customOptions, ...otherOtions };
 
         super(_options);
 
