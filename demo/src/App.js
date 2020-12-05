@@ -38,7 +38,7 @@ function App() {
             pitch: 0,
             interactive: true,
             hash: true,
-            attributionControl: true,
+            // attributionControl: true,
             customAttribution: '© Map © Openstreetmap',
             transformRequest: (url) => {
                 return {
@@ -69,6 +69,12 @@ function App() {
             bufferSize: 0.5, // Default is 500
             bufferUnit: 'kilometers', //Default is kilometers. It can be miles, degrees or kilometers
             bufferSteps: 64, // Default is 64
+            snap: true,
+            // snapOptions: {
+            //   snapPx: 15,
+            //   snapToMidPoints: true,
+            // },
+            guides: false,
             userProperties: true,
         });
 
