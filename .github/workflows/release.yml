@@ -32,6 +32,8 @@ jobs:
                   CLEAN: true # Automatically remove deleted files from the deploy branch
             - name: Publish 📤
               uses: pascalgn/npm-publish-action@1.3.5
+              with:
+                  publish_args: '--access public'
               env:
                   GITHUB_TOKEN: ${{ secrets.GH_ACTIONS }}
                   NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
