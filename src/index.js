@@ -1,4 +1,5 @@
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
+import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 
 import { SnapPolygonMode, SnapPointMode, SnapLineMode, SnapModeDrawStyles } from 'mapbox-gl-draw-snap-mode';
 import mapboxGlDrawPinningMode from 'mapbox-gl-draw-pinning-mode';
@@ -9,7 +10,7 @@ import SplitPolygonMode from 'mapbox-gl-draw-split-polygon-mode';
 import SplitLineMode from 'mapbox-gl-draw-split-line-mode';
 import { additionalTools, measurement, addToolStyle } from 'mapbox-gl-draw-additional-tools';
 
-import './index.css';
+require('./index.css');
 class SnapOptionsToolbar {
     constructor(opt) {
         let ctrl = this;
