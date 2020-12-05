@@ -1,5 +1,5 @@
-// import additionalTools from 'mapbox-gl-draw-additional-tools';
-
+import additionalTools from 'mapbox-gl-draw-additional-tools';
+import './index.css';
 class SnapOptionsToolbar {
     constructor(opt) {
         let ctrl = this;
@@ -119,34 +119,105 @@ export default {
                 {
                     on: 'click',
                     action: () => {
-                        draw.changeMode('passing_mode_point');
+                        try {
+                            draw.changeMode('splitLineMode', {
+                                spliter: prompt('Which Mode? (point, line_string, polygon)'),
+                            });
+                        } catch (err) {
+                            alert(err.message);
+                            console.error(err);
+                        }
                     },
-                    classes: ['passing_mode', 'point'],
-                    title: 'Passing-Point tool',
+                    classes: ['split-line'],
                 },
                 {
                     on: 'click',
                     action: () => {
-                        draw.changeMode('passing_mode_line_string', (info) => {
-                            console.log(info);
-                        });
+                        try {
+                            draw.changeMode('splitPolygonMode');
+                        } catch (err) {
+                            alert(err.message);
+                            console.error(err);
+                        }
                     },
-                    classes: ['passing_mode', 'line'],
-                    title: 'Passing-LineString tool',
+                    classes: ['split-polygon'],
                 },
                 {
                     on: 'click',
                     action: () => {
-                        draw.changeMode('passing_mode_polygon');
+                        try {
+                            draw.changeMode('cutPolygonMode');
+                        } catch (err) {
+                            alert(err.message);
+                            console.error(err);
+                        }
                     },
-                    classes: ['passing_mode', 'polygon'],
-                    title: 'Passing-Polygon tool',
+                    classes: ['cut-polygon'],
                 },
+                {
+                    on: 'click',
+                    action: () => {
+                        try {
+                            draw.changeMode('scaleRotateMode', {
+                                // required
+                                canScale: true,
+                                canRotate: true, // only rotation enabled
+                                canTrash: false, // disable feature delete
+
+                                rotatePivot: SRCenter.Center, // rotate around center
+                                scaleCenter: SRCenter.Opposite, // scale around opposite vertex
+
+                                singleRotationPoint: true, // only one rotation point
+                                rotationPointRadius: 1.2, // offset rotation point
+
+                                canSelectFeatures: true,
+                            });
+                        } catch (err) {
+                            alert(err.message);
+                            console.error(err);
+                        }
+                    },
+                    classes: ['rotate-icon'],
+                },
+                {
+                    on: 'click',
+                    action: () => {
+                        draw.changeMode('pinning_mode');
+                    },
+                    classes: ['pinning_mode'],
+                    title: 'Pinning Mode tool',
+                },
+                // {
+                //     on: 'click',
+                //     action: () => {
+                //         draw.changeMode('passing_mode_point');
+                //     },
+                //     classes: ['passing_mode', 'point'],
+                //     title: 'Passing-Point tool',
+                // },
+                // {
+                //     on: 'click',
+                //     action: () => {
+                //         draw.changeMode('passing_mode_line_string', (info) => {
+                //             console.log(info);
+                //         });
+                //     },
+                //     classes: ['passing_mode', 'line'],
+                //     title: 'Passing-LineString tool',
+                // },
+                // {
+                //     on: 'click',
+                //     action: () => {
+                //         draw.changeMode('passing_mode_polygon');
+                //     },
+                //     classes: ['passing_mode', 'polygon'],
+                //     title: 'Passing-Polygon tool',
+                // },
             ],
         });
 
         map.addControl(drawBar, placement);
-        // map.addControl(additionalTools(draw), placement);
+        map.addControl(additionalTools(draw), placement);
         map.addControl(snapOptionsBar, placement);
     },
 
