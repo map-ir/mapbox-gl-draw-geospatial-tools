@@ -41,8 +41,8 @@ function App() {
                 };
             },
         });
-        draw = new MapboxDrawPro({});
 
+        draw = new MapboxDrawPro();
         window.draw = draw;
 
         map.once('load', () => {
