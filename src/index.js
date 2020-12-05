@@ -7,7 +7,7 @@ import { SRMode, SRCenter, SRStyle } from 'mapbox-gl-draw-scale-rotate-mode';
 import CutPolygonMode from 'mapbox-gl-draw-cut-polygon-mode';
 import SplitPolygonMode from 'mapbox-gl-draw-split-polygon-mode';
 import SplitLineMode from 'mapbox-gl-draw-split-line-mode';
-import additionalTools from 'mapbox-gl-draw-additional-tools';
+import { additionalTools, measurement, addToolStyle } from 'mapbox-gl-draw-additional-tools';
 
 import './index.css';
 class SnapOptionsToolbar {
@@ -58,7 +58,7 @@ class SnapOptionsToolbar {
 export default class MapboxDrawPro extends MapboxDraw {
     constructor(options) {
         options = options || {};
-        const { modes, otherOtions } = options;
+        const { modes, styles, otherOtions } = options;
 
         const customModes = {
             ...MapboxDraw.modes,

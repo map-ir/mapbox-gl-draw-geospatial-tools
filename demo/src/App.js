@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxGl from 'mapbox-gl';
-import MapboxDraw from '@mapbox/mapbox-gl-draw';
+// import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 
 import SuperMapboxDraw from 'mapbox-gl-draw-geospatial-tools';
