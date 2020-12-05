@@ -1,12 +1,12 @@
 [![NPM](https://img.shields.io/npm/v/mapbox-gl-draw-geospatial-tools.svg)](https://www.npmjs.com/package/mapbox-gl-draw-geospatial-tools)
-![Develop](https://github.com/reyhanemasumi/mapbox-gl-draw-geospatial-tools/workflows/Develop/badge.svg)
-![Release](https://github.com/reyhanemasumi/mapbox-gl-draw-geospatial-tools/workflows/Release/badge.svg)
+![Develop](https://github.com/map-ir/mapbox-gl-draw-geospatial-tools/workflows/Develop/badge.svg)
+![Release](https://github.com/map-ir/mapbox-gl-draw-geospatial-tools/workflows/Release/badge.svg)
 
 # Mapbox GL Draw Geospatial Tools
 
 Advanced tools for geospatial edit and analysis based on Mapbox Gl Draw
 
-## [DEMO](https://reyhanemasumi.github.io/mapbox-gl-draw-additional-tools/)
+## [DEMO](https://map-ir.github.io/mapbox-gl-draw-additional-tools/)
 
 ![A Gif showing demo usage](demo/public/demo.gif)
 
@@ -26,8 +26,7 @@ or use CDN:
 
 ```js
 import mapboxGl from 'mapbox-gl';
-import MapboxDraw from '@mapbox/mapbox-gl-draw';
-import geospatialTools from 'mapbox-gl-draw-geospatial-tools';
+import MapboxDrawPro from 'mapbox-gl-draw-geospatial-tools';
 
 const map = new mapboxgl.Map({
     container: 'map', // container id
@@ -36,11 +35,11 @@ const map = new mapboxgl.Map({
     zoom: 12, // starting zoom
 });
 
-const draw = new MapboxDraw({
-    modes: {
-        ...MapboxDraw.modes,
-    },
-});
+const draw = new MapboxDrawPro({});
 ```
 
-## [Example](https://github.com/ReyhaneMasumi/mapbox-gl-draw-geospatial-tools/blob/main/demo/src/App.js)
+## [Example](https://github.com/map-ir/mapbox-gl-draw-geospatial-tools/blob/main/demo/src/App.js)
+
+## License
+
+MIT © [map-ir](LICENSE)
