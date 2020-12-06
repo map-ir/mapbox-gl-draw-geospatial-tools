@@ -10,6 +10,9 @@ import { SRMode, SRCenter, SRStyle } from 'mapbox-gl-draw-scale-rotate-mode';
 import CutPolygonMode from 'mapbox-gl-draw-cut-polygon-mode';
 import SplitPolygonMode from 'mapbox-gl-draw-split-polygon-mode';
 import SplitLineMode from 'mapbox-gl-draw-split-line-mode';
+import FreehandMode from 'mapbox-gl-draw-freehand-mode';
+import DrawRectangle, { DrawStyles as RectRestrictStyles } from 'mapbox-gl-draw-rectangle-restrict-area';
+import DrawRectangleAssisted from '@geostarters/mapbox-gl-draw-rectangle-assisted-mode';
 import { additionalTools, measurement, addToolStyle } from 'mapbox-gl-draw-additional-tools';
 
 require('./index.css');
@@ -76,6 +79,9 @@ export default class MapboxDrawPro extends MapboxDraw {
             cutPolygonMode: CutPolygonMode,
             splitPolygonMode: SplitPolygonMode,
             splitLineMode: SplitLineMode,
+            freehandMode: FreehandMode,
+            draw_rectangle: DrawRectangle,
+            draw_rectangle_assisted: DrawRectangleAssisted,
         };
 
         const customOptions = {
@@ -92,12 +98,55 @@ export default class MapboxDrawPro extends MapboxDraw {
         };
 
         const _modes = { ...customModes, ...modes };
-        const _styles = unionBy(SnapModeDrawStyles, SRStyle, addToolStyle, styles, 'id');
+        const _styles = unionBy(styles, RectRestrictStyles, SnapModeDrawStyles, SRStyle, addToolStyle, 'id');
         const _options = { modes: _modes, styles: _styles, ...customOptions, ...otherOtions };
 
         super(_options);
 
         this.buttons = [
+            {
+                on: 'click',
+                action: () => {
+                    try {
+                        draw.changeMode('freehandMode');
+                    } catch (err) {
+                        console.error(err);
+                    }
+                },
+                classes: ['free-hand'],
+                title: 'Free-Hand Draw Mode tool',
+            },
+            {
+                on: 'click',
+                action: () => {
+                    try {
+                        draw.changeMode('draw_rectangle', {
+                            areaLimit: parseInt(prompt('Max Area? (empty for no restriction)')), // 5 * 1_000_000, // 5 km2, optional
+                            // escapeKeyStopsDrawing: true, // default true
+                            // allowCreateExceeded: false, // default false
+                            // exceedCallsOnEachMove: false, // default false
+                            // exceedCallback: (area) => console.log('exceeded!', area), // optional
+                            // areaChangedCallback: (area) => console.log('updated', area), // optional
+                        });
+                    } catch (err) {
+                        console.error(err);
+                    }
+                },
+                classes: ['draw-rectangle'],
+                title: 'Rectangle Draw Mode tool',
+            },
+            {
+                on: 'click',
+                action: () => {
+                    try {
+                        draw.changeMode('draw_rectangle_assisted');
+                    } catch (err) {
+                        console.error(err);
+                    }
+                },
+                classes: ['draw-rectangle-assisted'],
+                title: 'Assisted Rectangle Draw Mode tool',
+            },
             {
                 on: 'click',
                 action: () => {

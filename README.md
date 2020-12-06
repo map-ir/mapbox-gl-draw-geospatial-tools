@@ -14,6 +14,9 @@ Internally multiple Mapbox GL Draw plugins are used:
 -   [Scale/Rotate Mode](https://github.com/ReyhaneMasumi/mapbox-gl-draw-scale-rotate-mode)
 -   [Pinning Mode](https://github.com/mhsattarian/mapbox-gl-draw-pinning-mode)
 -   [Snap Mode](https://github.com/mhsattarian/mapbox-gl-draw-snap-mode)
+-   [Free Hand Mode](https://github.com/bemky/mapbox-gl-draw-freehand-mode)
+-   [Rectangle Restrict Area Mode](https://github.com/dqunbp/mapbox-gl-draw-rectangle-restrict-area)
+-   [Assisted Rectangle Mode](https://github.com/geostarters/mapbox-gl-draw-assisted-rectangle-mode)
 -   [Aditional Tools](https://github.com/ReyhaneMasumi/mapbox-gl-draw-additional-tools)
 
 ## [DEMO](https://map-ir.github.io/mapbox-gl-draw-additional-tools/)
