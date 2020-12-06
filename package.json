@@ -40,12 +40,15 @@
         "rollup-plugin-terser": "^7.0.2"
     },
     "dependencies": {
+        "@geostarters/mapbox-gl-draw-rectangle-assisted-mode": "^3.0.4",
         "@mapbox/mapbox-gl-draw": "^1.2.0",
         "lodash.unionby": "^4.8.0",
         "mapbox-gl-draw-additional-tools": "^0.3.0",
         "mapbox-gl-draw-cut-polygon-mode": "^1.0.1",
+        "mapbox-gl-draw-freehand-mode": "^2.0.0",
         "mapbox-gl-draw-passing-mode": "^0.1.0",
         "mapbox-gl-draw-pinning-mode": "^0.1.0",
+        "mapbox-gl-draw-rectangle-restrict-area": "^3.1.4",
         "mapbox-gl-draw-scale-rotate-mode": "^0.1.0",
         "mapbox-gl-draw-snap-mode": "^0.1.6",
         "mapbox-gl-draw-split-line-mode": "^1.0.2",
