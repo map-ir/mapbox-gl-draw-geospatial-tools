@@ -19,7 +19,7 @@ Internally multiple Mapbox GL Draw plugins are used:
 -   [Assisted Rectangle Mode](https://github.com/geostarters/mapbox-gl-draw-assisted-rectangle-mode)
 -   [Aditional Tools](https://github.com/ReyhaneMasumi/mapbox-gl-draw-additional-tools)
 
-## [DEMO](https://map-ir.github.io/mapbox-gl-draw-additional-tools/)
+## [DEMO](https://map-ir.github.io/mapbox-gl-draw-geospatial-tools/)
 
 ![An Image showing toolbar](demo/public/demo.png)
 
