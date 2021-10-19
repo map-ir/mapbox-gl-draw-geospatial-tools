@@ -31,6 +31,6 @@ jobs:
                   FOLDER: demo/build # The folder the action should deploy.
                   CLEAN: true # Automatically remove deleted files from the deploy branch
             - name: Publish 📤
-        uses: JS-DevTools/npm-publish@v1
-        with:
-            token: ${{ secrets.NPM_TOKEN }}
+              uses: JS-DevTools/npm-publish@v1
+              with:
+                  token: ${{ secrets.NPM_TOKEN }}
