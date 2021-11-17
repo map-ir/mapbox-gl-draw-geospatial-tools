@@ -14,7 +14,8 @@ import FreehandMode from 'mapbox-gl-draw-freehand-mode';
 import DrawRectangle, { DrawStyles as RectRestrictStyles } from 'mapbox-gl-draw-rectangle-restrict-area';
 import DrawRectangleAssisted from '@geostarters/mapbox-gl-draw-rectangle-assisted-mode';
 import { additionalTools, measurement, addToolStyle } from 'mapbox-gl-draw-additional-tools';
-
+// import MapboxCircle from 'mapbox-gl-circle';
+const MapboxCircle = require('mapbox-gl-circle');
 require('./index.css');
 class SnapOptionsToolbar {
     constructor(opt) {
@@ -104,6 +105,54 @@ export default class MapboxDrawPro extends MapboxDraw {
         super(_options);
 
         this.buttons = [
+            {
+                on: 'click',
+                action: (map) => {
+                    this.map.getCanvas().style.cursor = 'pointer';
+                    this.map.once('click', (e) => {
+                        this.map.getCanvas().style.cursor = '';
+                        var myCircle = new MapboxCircle(e.lngLat, 250, {
+                            editable: false,
+                            fillColor: '#3bb2d0',
+                            fillOpacity: 0.1,
+                            strokeColor: '#3bb2d0',
+                            strokeWeight: 2,
+                        }).addTo(this.map);
+                        myCircle.on('click', (mapMouseEvent) => {
+                            myCircle.remove();
+                            if (!myCircle.options.editable) {
+                                myCircle.options.editable = true;
+                                myCircle.options.fillColor = '#fbb03b';
+                                myCircle.options.strokeColor = '#fbb03b';
+                            } else {
+                                myCircle.options.editable = false;
+                                myCircle.options.fillColor = '#3bb2d0';
+                                myCircle.options.strokeColor = '#3bb2d0';
+                            }
+                            myCircle._updateCircle(); // <-- this re-initializes internal values of the circle
+                            myCircle.addTo(this.map);
+                        });
+                        myCircle.on('centerchanged', (circleObj) => {
+                            myCircle.remove();
+                            myCircle.options.editable = false;
+                            myCircle.options.fillColor = '#3bb2d0';
+                            myCircle.options.strokeColor = '#3bb2d0';
+                            myCircle._updateCircle(); // <-- this re-initializes internal values of the circle
+                            myCircle.addTo(this.map);
+                        });
+                        myCircle.on('radiuschanged', (circleObj) => {
+                            myCircle.remove();
+                            myCircle.options.editable = false;
+                            myCircle.options.fillColor = '#3bb2d0';
+                            myCircle.options.strokeColor = '#3bb2d0';
+                            myCircle._updateCircle(); // <-- this re-initializes internal values of the circle
+                            myCircle.addTo(this.map);
+                        });
+                    });
+                },
+                classes: ['draw-circle'],
+                title: 'Draw Circle tool',
+            },
             {
                 on: 'click',
                 action: () => {
