@@ -44,7 +44,7 @@
         "@mapbox/mapbox-gl-draw": "^1.3.0",
         "lodash.unionby": "^4.8.0",
         "mapbox-gl-circle": "^1.6.5",
-        "mapbox-gl-draw-additional-tools": "^0.3.0",
+        "mapbox-gl-draw-additional-tools": "^0.4.0",
         "mapbox-gl-draw-cut-polygon-mode": "^1.0.2",
         "mapbox-gl-draw-freehand-mode": "^2.1.0",
         "mapbox-gl-draw-passing-mode": "^0.1.0",
