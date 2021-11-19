@@ -6,20 +6,20 @@
     "runtime-main.js": "/mapbox-gl-draw-geospatial-tools/static/js/runtime-main.660fba22.js",
     "runtime-main.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/runtime-main.660fba22.js.map",
     "static/css/2.20718bf1.chunk.css": "/mapbox-gl-draw-geospatial-tools/static/css/2.20718bf1.chunk.css",
-    "static/js/2.e2275b88.chunk.js": "/mapbox-gl-draw-geospatial-tools/static/js/2.e2275b88.chunk.js",
-    "static/js/2.e2275b88.chunk.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/2.e2275b88.chunk.js.map",
+    "static/js/2.65100b0f.chunk.js": "/mapbox-gl-draw-geospatial-tools/static/js/2.65100b0f.chunk.js",
+    "static/js/2.65100b0f.chunk.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/2.65100b0f.chunk.js.map",
     "static/js/3.fb93924b.chunk.js": "/mapbox-gl-draw-geospatial-tools/static/js/3.fb93924b.chunk.js",
     "static/js/3.fb93924b.chunk.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/3.fb93924b.chunk.js.map",
     "index.html": "/mapbox-gl-draw-geospatial-tools/index.html",
     "static/css/2.20718bf1.chunk.css.map": "/mapbox-gl-draw-geospatial-tools/static/css/2.20718bf1.chunk.css.map",
     "static/css/main.1e1622b6.chunk.css.map": "/mapbox-gl-draw-geospatial-tools/static/css/main.1e1622b6.chunk.css.map",
-    "static/js/2.e2275b88.chunk.js.LICENSE.txt": "/mapbox-gl-draw-geospatial-tools/static/js/2.e2275b88.chunk.js.LICENSE.txt",
+    "static/js/2.65100b0f.chunk.js.LICENSE.txt": "/mapbox-gl-draw-geospatial-tools/static/js/2.65100b0f.chunk.js.LICENSE.txt",
     "static/media/index.css": "/mapbox-gl-draw-geospatial-tools/static/media/union.2cd460cb.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.660fba22.js",
     "static/css/2.20718bf1.chunk.css",
-    "static/js/2.e2275b88.chunk.js",
+    "static/js/2.65100b0f.chunk.js",
     "static/css/main.1e1622b6.chunk.css",
     "static/js/main.010b51a1.chunk.js"
   ]
