@@ -89,7 +89,7 @@ export default class MapboxDrawPro extends MapboxDraw {
             bufferSize: 0.5,
             bufferUnit: 'kilometers',
             bufferSteps: 64,
-            snap: true,
+            snap: false,
             // snapOptions: {
             //   snapPx: 15,
             //   snapToMidPoints: true,
