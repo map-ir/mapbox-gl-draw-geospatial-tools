@@ -51,7 +51,7 @@
         "mapbox-gl-draw-pinning-mode": "^0.1.1",
         "mapbox-gl-draw-rectangle-restrict-area": "^3.1.5",
         "mapbox-gl-draw-scale-rotate-mode": "^0.1.0",
-        "mapbox-gl-draw-snap-mode": "^0.1.7",
+        "mapbox-gl-draw-snap-mode": "^0.1.8",
         "mapbox-gl-draw-split-line-mode": "^1.0.3",
         "mapbox-gl-draw-split-polygon-mode": "^1.0.2"
     }
