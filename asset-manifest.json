@@ -1,26 +1,25 @@
 {
   "files": {
-    "main.css": "/mapbox-gl-draw-geospatial-tools/static/css/main.1e1622b6.chunk.css",
-    "main.js": "/mapbox-gl-draw-geospatial-tools/static/js/main.e67ef496.chunk.js",
-    "main.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/main.e67ef496.chunk.js.map",
-    "runtime-main.js": "/mapbox-gl-draw-geospatial-tools/static/js/runtime-main.162c9e81.js",
-    "runtime-main.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/runtime-main.162c9e81.js.map",
-    "static/css/2.3c52482b.chunk.css": "/mapbox-gl-draw-geospatial-tools/static/css/2.3c52482b.chunk.css",
-    "static/js/2.d9ae97e5.chunk.js": "/mapbox-gl-draw-geospatial-tools/static/js/2.d9ae97e5.chunk.js",
-    "static/js/2.d9ae97e5.chunk.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/2.d9ae97e5.chunk.js.map",
-    "static/js/3.cb8f7c05.chunk.js": "/mapbox-gl-draw-geospatial-tools/static/js/3.cb8f7c05.chunk.js",
-    "static/js/3.cb8f7c05.chunk.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/3.cb8f7c05.chunk.js.map",
+    "main.css": "/mapbox-gl-draw-geospatial-tools/static/css/main.106c98dd.css",
+    "main.js": "/mapbox-gl-draw-geospatial-tools/static/js/main.fe68f4b6.js",
+    "static/js/377.e23f6d3b.chunk.js": "/mapbox-gl-draw-geospatial-tools/static/js/377.e23f6d3b.chunk.js",
+    "static/media/buffer.svg": "/mapbox-gl-draw-geospatial-tools/static/media/buffer.2cdd7b1b5586be7182aa.svg",
+    "static/media/area.svg": "/mapbox-gl-draw-geospatial-tools/static/media/area.0e7c1fea03f7be12fb6a.svg",
+    "static/media/centroid.svg": "/mapbox-gl-draw-geospatial-tools/static/media/centroid.fd9fbedea3296f4aa165.svg",
+    "static/media/circle.svg": "/mapbox-gl-draw-geospatial-tools/static/media/circle.2f957e8aba3ebc4d4f07.svg",
+    "static/media/cut.svg": "/mapbox-gl-draw-geospatial-tools/static/media/cut.3211235a65494416ef86.svg",
+    "static/media/union.svg": "/mapbox-gl-draw-geospatial-tools/static/media/union.2cd460cbb57a206fde9c.svg",
+    "static/media/line-to-point.svg": "/mapbox-gl-draw-geospatial-tools/static/media/line-to-point.de670efa5edc8c6e0da4.svg",
+    "static/media/polygon-to-point.svg": "/mapbox-gl-draw-geospatial-tools/static/media/polygon-to-point.b5993121697664924f65.svg",
+    "static/media/copy.svg": "/mapbox-gl-draw-geospatial-tools/static/media/copy.be548b0934cf15390382.svg",
+    "static/media/ruler.svg": "/mapbox-gl-draw-geospatial-tools/static/media/ruler.09d5e3035119febd3693.svg",
     "index.html": "/mapbox-gl-draw-geospatial-tools/index.html",
-    "static/css/2.3c52482b.chunk.css.map": "/mapbox-gl-draw-geospatial-tools/static/css/2.3c52482b.chunk.css.map",
-    "static/css/main.1e1622b6.chunk.css.map": "/mapbox-gl-draw-geospatial-tools/static/css/main.1e1622b6.chunk.css.map",
-    "static/js/2.d9ae97e5.chunk.js.LICENSE.txt": "/mapbox-gl-draw-geospatial-tools/static/js/2.d9ae97e5.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/mapbox-gl-draw-geospatial-tools/static/media/union.2cd460cb.svg"
+    "main.106c98dd.css.map": "/mapbox-gl-draw-geospatial-tools/static/css/main.106c98dd.css.map",
+    "main.fe68f4b6.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/main.fe68f4b6.js.map",
+    "377.e23f6d3b.chunk.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/377.e23f6d3b.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.162c9e81.js",
-    "static/css/2.3c52482b.chunk.css",
-    "static/js/2.d9ae97e5.chunk.js",
-    "static/css/main.1e1622b6.chunk.css",
-    "static/js/main.e67ef496.chunk.js"
+    "static/css/main.106c98dd.css",
+    "static/js/main.fe68f4b6.js"
   ]
 }
