@@ -16,11 +16,11 @@ jobs:
           node-version: 16
       - name: Bundle 📦
         run: |
-          npm ci
+          npm ci --force
           npm run build
       - name: Install and Build 🔧
         run: |
-          npm ci
+          npm ci --force
           npm run build
         working-directory: demo
       - name: Deploy 🚀
