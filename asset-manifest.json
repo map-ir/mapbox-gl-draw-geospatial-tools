@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mapbox-gl-draw-geospatial-tools/static/css/main.f79ce2c5.css",
-    "main.js": "/mapbox-gl-draw-geospatial-tools/static/js/main.a793be80.js",
+    "main.js": "/mapbox-gl-draw-geospatial-tools/static/js/main.bf6efb2f.js",
     "static/js/377.e23f6d3b.chunk.js": "/mapbox-gl-draw-geospatial-tools/static/js/377.e23f6d3b.chunk.js",
     "static/media/buffer.svg": "/mapbox-gl-draw-geospatial-tools/static/media/buffer.2cdd7b1b5586be7182aa.svg",
     "static/media/area.svg": "/mapbox-gl-draw-geospatial-tools/static/media/area.0e7c1fea03f7be12fb6a.svg",
@@ -15,11 +15,11 @@
     "static/media/ruler.svg": "/mapbox-gl-draw-geospatial-tools/static/media/ruler.09d5e3035119febd3693.svg",
     "index.html": "/mapbox-gl-draw-geospatial-tools/index.html",
     "main.f79ce2c5.css.map": "/mapbox-gl-draw-geospatial-tools/static/css/main.f79ce2c5.css.map",
-    "main.a793be80.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/main.a793be80.js.map",
+    "main.bf6efb2f.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/main.bf6efb2f.js.map",
     "377.e23f6d3b.chunk.js.map": "/mapbox-gl-draw-geospatial-tools/static/js/377.e23f6d3b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f79ce2c5.css",
-    "static/js/main.a793be80.js"
+    "static/js/main.bf6efb2f.js"
   ]
 }
