@@ -3,6 +3,7 @@ import defaultDrawStyle from '@mapbox/mapbox-gl-draw/src/lib/theme';
 
 import unionBy from 'lodash.unionby';
 
+import SelectFeatureMode, { drawStyles as selectFeatureDrawStyles } from 'mapbox-gl-draw-select-mode';
 import { SnapPolygonMode, SnapPointMode, SnapLineMode, SnapModeDrawStyles } from 'mapbox-gl-draw-snap-mode';
 import mapboxGlDrawPinningMode from 'mapbox-gl-draw-pinning-mode';
 import * as mapboxGlDrawPassingMode from 'mapbox-gl-draw-passing-mode';
@@ -72,7 +73,7 @@ export default class MapboxDrawPro extends MapboxDraw {
 
     const customModes = {
       // ...MapboxDraw.modes,
-      ...CutPolygonMode(SplitPolygonMode(MapboxDraw.modes)),
+      ...CutPolygonMode(SplitPolygonMode(SelectFeatureMode(MapboxDraw.modes))),
       draw_point: SnapPointMode,
       draw_polygon: SnapPolygonMode,
       draw_line_string: SnapLineMode,
@@ -101,7 +102,7 @@ export default class MapboxDrawPro extends MapboxDraw {
     };
 
     const _modes = { ...customModes, ...modes };
-    const __styles = [...cutPolygonDrawStyles(splitPolygonDrawStyles(defaultDrawStyle))];
+    const __styles = [...cutPolygonDrawStyles(splitPolygonDrawStyles(selectFeatureDrawStyles(defaultDrawStyle)))];
     const _styles = unionBy(__styles, styles, RectRestrictStyles, SnapModeDrawStyles, SRStyle, addToolStyle, 'id');
     const _options = { modes: _modes, styles: _styles, ...customOptions, ...otherOtions };
 
@@ -217,11 +218,38 @@ export default class MapboxDrawPro extends MapboxDraw {
       {
         on: 'click',
         action: () => {
-          try {
-            draw.changeMode('split_polygon');
-          } catch (err) {
-            alert(err.message);
-            console.error(err);
+          const selectedFeatureIDs = draw.getSelectedIds();
+          console.log(
+            '🚀 ~ file: index.js ~ line 222 ~ MapboxDrawPro ~ constructor ~ selectedFeatureIDs',
+            selectedFeatureIDs
+          );
+
+          function goSplitMode(selectedFeatureIDs) {
+            console.log('🚀 ~ file: index.js ~ line 225 ~ MapboxDrawPro ~ goSplitMode ~ goSplitMode');
+
+            try {
+              draw?.changeMode('split_polygon', {
+                featureIds: selectedFeatureIDs,
+                /** Default option vlaues: */
+                highlightColor: '#222',
+                // lineWidth: 0,
+                // lineWidthUnit: "kilometers",
+              });
+            } catch (err) {
+              console.error(err);
+            }
+          }
+
+          if (selectedFeatureIDs.length > 0) {
+            goSplitMode(selectedFeatureIDs);
+          } else {
+            draw.changeMode('select_feature', {
+              selectHighlightColor: 'yellow',
+              onSelect(selectedFeatureID) {
+                console.log('🚀 ~ file: index.js ~ line 249 ~ MapboxDrawPro ~ onSelect ~ onSelect');
+                goSplitMode([selectedFeatureID]);
+              },
+            });
           }
         },
         classes: ['split-polygon'],
