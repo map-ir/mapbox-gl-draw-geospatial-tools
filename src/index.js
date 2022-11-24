@@ -225,8 +225,6 @@ export default class MapboxDrawPro extends MapboxDraw {
           );
 
           function goSplitMode(selectedFeatureIDs) {
-            console.log('🚀 ~ file: index.js ~ line 225 ~ MapboxDrawPro ~ goSplitMode ~ goSplitMode');
-
             try {
               draw?.changeMode('split_polygon', {
                 featureIds: selectedFeatureIDs,
@@ -246,7 +244,6 @@ export default class MapboxDrawPro extends MapboxDraw {
             draw.changeMode('select_feature', {
               selectHighlightColor: 'yellow',
               onSelect(selectedFeatureID) {
-                console.log('🚀 ~ file: index.js ~ line 249 ~ MapboxDrawPro ~ onSelect ~ onSelect');
                 goSplitMode([selectedFeatureID]);
               },
             });

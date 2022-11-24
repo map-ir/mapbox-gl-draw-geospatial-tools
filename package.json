@@ -1,6 +1,6 @@
 {
     "name": "@map.ir/mapbox-gl-draw-geospatial-tools",
-    "version": "0.2.2",
+    "version": "0.3.0",
     "description": "Advanced tools for geospatial edit and analysis based on Mapbox Gl Draw",
     "main": "dist/index.js",
     "module": "src/index.js",
