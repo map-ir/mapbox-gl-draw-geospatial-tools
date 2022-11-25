@@ -13,14 +13,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
       - name: Bundle 📦
         run: |
-          npm install
+          npm ci --force
           npm run build
       - name: Install and Build 🔧
         run: |
-          npm install
+          npm ci --force
           npm run build
         working-directory: demo
       - name: Deploy 🚀
